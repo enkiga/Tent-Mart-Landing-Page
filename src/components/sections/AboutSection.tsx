@@ -30,10 +30,10 @@ const AboutSection = forwardRef<HTMLElement, { className?: string; onScrollToSec
     <SectionWrapper ref={ref} className={`py-20 flex flex-col ${className || ""}`}>
       <section className="flex flex-col md:flex-row items-start gap-3">
         <div className="w-full md:w-1/2">
-          <h1 className="font-secondary text-4xl md:text-6xl font-semibold text-sidebar-accent/90 tracking-wide">
+          <h2 className="font-secondary text-4xl md:text-6xl font-semibold text-sidebar-accent/90 tracking-wide">
             Explore our extensive <br className="hidden md:block" />
             <span className="text-foreground">collection of tents</span>
-          </h1>
+          </h2>
         </div>
         <div className="w-full md:w-1/2 flex flex-col items-start gap-3">
           <p className="text-sm md:text-base">

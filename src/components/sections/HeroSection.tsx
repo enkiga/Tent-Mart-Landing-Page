@@ -20,6 +20,10 @@ const HeroSection = forwardRef<
       <img
         src="https://images.unsplash.com/photo-1535576434247-e0f50b766399?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Hero Image"
+        width={1476}
+        height={900}
+        decoding="async"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover object-top -z-10"
       />
       <div className="absolute inset-0 bg-linear-to-b from-secondary/80  to-transparent"></div>
@@ -48,10 +52,12 @@ const HeroSection = forwardRef<
         <div className="flex flex-col-reverse md:flex-row justify-between items-end md:mb-8 gap-3">
           <div className="flex flex-col-reverse md:flex-col gap-4 w-full md:w-auto">
             {/* Social Media */}
-            <div className="flex flex-row justify-end  md:flex-col gap-5 mb-5">
+            <div className="flex flex-row justify-end md:flex-col md:items-start gap-5 mb-5">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Twitter className="text-white size-6 cursor-pointer" />
+                      <Button aria-label="Follow on Twitter" variant="link" >
+                        <Twitter className="size-6 text-white" />
+                      </Button>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Follow us on Twitter</p>
@@ -59,7 +65,9 @@ const HeroSection = forwardRef<
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Instagram className="text-white size-6 cursor-pointer" />
+                  <Button aria-label="Follow on Instagram" variant="link" >
+                    <Instagram className="size-6 text-white" />
+                  </Button>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Follow us on Instagram</p>
@@ -67,7 +75,9 @@ const HeroSection = forwardRef<
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Linkedin className="text-white size-6 cursor-pointer" />
+                  <Button aria-label="Follow on LinkedIn" variant="link" >
+                    <Linkedin className="size-6 text-white" />
+                  </Button>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Follow us on LinkedIn</p>
@@ -115,14 +125,19 @@ const HeroSection = forwardRef<
               <img
                 src={Image_1}
                 alt="Discounted tents"
+                width={400}
+                height={160}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-32 object-cover -mt-20"
               />
-              <div
+              <button
+                aria-label="Explore products"
                 className="absolute bottom-2 right-3 rounded-full size-10 bg-sidebar-accent/90 flex items-center justify-center cursor-pointer"
                 onClick={() => onScrollToSection?.("products")}
               >
                 <ArrowRight className=" text-background size-5" />
-              </div>
+              </button>
             </Card>
           </div>
         </div>

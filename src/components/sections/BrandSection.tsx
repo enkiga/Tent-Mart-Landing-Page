@@ -41,6 +41,10 @@ const BrandSection = forwardRef<HTMLElement, { className?: string }>(
                   <img
                     src={brand}
                     alt="Brand Logo"
+                    width={120}
+                    height={64}
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-16 object-contain opacity-90 block"
                   />
                 </div>

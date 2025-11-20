@@ -21,7 +21,7 @@ const NewsLetterSection = forwardRef<HTMLElement, { className?: string }>((props
       <InputGroup className="flex flex-1 justify-end h-12 md:max-w-[400px]">
         <InputGroupInput placeholder="Your email address" />
         <InputGroupAddon align="inline-end">
-          <InputGroupButton variant="default" size="icon-sm">
+          <InputGroupButton aria-label="Subscribe to newsletter" variant="default" size="icon-sm">
             <ArrowRight className="size-5 text-background" />
           </InputGroupButton>
         </InputGroupAddon>

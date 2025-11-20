@@ -31,7 +31,7 @@ const Navigation: FC<NavigationProps> = ({ onScrollToSection, isHero = false }) 
   return (
     <nav className={`${navClass}`}>
       <div className="container mx-auto flex items-center justify-between gap-4 px-4 md:px-16">
-        <h1 className={`font-secondary tracking-widest text-xl cursor-pointer ${textClass}`} onClick={() => onScrollToSection?.("hero")}>TentMart</h1>
+        <button className={`font-secondary tracking-widest text-xl cursor-pointer ${textClass}`} aria-label="Home" onClick={() => onScrollToSection?.("hero")}>TentMart</button>
         <div className="md:flex items-center gap-4 hidden">
           {NavList.map((item, index) => (
             <Button
@@ -47,7 +47,7 @@ const Navigation: FC<NavigationProps> = ({ onScrollToSection, isHero = false }) 
         </div>
         <div>
           <Sheet>
-            <SheetTrigger className="md:hidden">
+            <SheetTrigger className="md:hidden" aria-label="Open menu">
               <AlignRight className={`size-7 ${textClass} cursor-pointer`} />
             </SheetTrigger>
             <SheetContent side="right" className="w-3/5 bg-background/50 backdrop-blur-md">

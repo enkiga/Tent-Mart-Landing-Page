@@ -23,7 +23,7 @@ const FooterSection = forwardRef<HTMLElement, { className?: string; onScrollToSe
             </ul>
           </div>
           <div className="flex flex-col items-center">
-            <img src={Logo} alt="Tent Mart Logo" className='w-full h-24 object-cover'/>
+            <img src={Logo} alt="Tent Mart Logo" width={200} height={96} loading="lazy" decoding="async" className='w-full h-24 object-cover'/>
             <ul className='flex items-center gap-6'>
               {NavList.map((item, index) => (
                 <li key={index} className='cursor-pointer' onClick={() => onScrollToSection?.(item.key)}>

@@ -22,8 +22,8 @@ import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 
-const ProductSection = forwardRef<HTMLElement, { className?: string }>((props, ref) => {
-  const { className } = props || {};
+const ProductSection = forwardRef<HTMLElement, { className?: string; onScrollToSection?: (key: string) => void }>((props, ref) => {
+  const { className, onScrollToSection } = props || {};
   const productData = [
     {
       category: "Backpacking Tents",
@@ -111,6 +111,10 @@ const ProductSection = forwardRef<HTMLElement, { className?: string }>((props, r
                     <img
                       src={product.image}
                       alt={product.name}
+                      width={400}
+                      height={240}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-60 object-contain rounded-md"
                     />
                     <div className="flex items-center justify-between w-full">
@@ -122,9 +126,9 @@ const ProductSection = forwardRef<HTMLElement, { className?: string }>((props, r
                           {product.price}
                         </p>
                       </div>
-                      <div className="rounded-full size-10 bg-sidebar-accent/90 flex items-center justify-center cursor-pointer">
+                      <button aria-label={`View ${product.name}`} className="rounded-full size-10 bg-sidebar-accent/90 flex items-center justify-center cursor-pointer">
                         <ArrowRight className=" text-background size-5" />
-                      </div>
+                      </button>
                     </div>
                   </Card>
                 ))}
@@ -139,7 +143,7 @@ const ProductSection = forwardRef<HTMLElement, { className?: string }>((props, r
                     <span className="font-medium">{cat.count}</span> products
                   </p>
                 </div>
-                <Button className="text-foreground uppercase" size="lg">
+                <Button className="text-foreground uppercase" size="lg" onClick={() => onScrollToSection?.("products")}>
                   Explore More
                 </Button>
               </div>

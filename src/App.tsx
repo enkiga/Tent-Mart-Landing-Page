@@ -1,12 +1,35 @@
-import { useRef, useCallback, useMemo, useState, useEffect } from "react";
+import {
+  useRef,
+  useCallback,
+  useMemo,
+  useState,
+  useEffect,
+  Suspense,
+  lazy,
+  type LazyExoticComponent,
+  type ForwardRefExoticComponent,
+  type PropsWithoutRef,
+  type RefAttributes,
+} from "react";
 import AboutSection from "./components/sections/AboutSection";
-import BrandSection from "./components/sections/BrandSection";
-import FeatureSection from "./components/sections/FeatureSection";
-import FooterSection from "./components/sections/FooterSection";
 import HeroSection from "./components/sections/HeroSection";
-import NewsLetterSection from "./components/sections/NewsLetterSection";
-import ProductSection from "./components/sections/ProductSection";
 import Navigation from "./components/sections/Navigation";
+type SectionProps = {
+  className?: string;
+  onScrollToSection?: (key: string) => void;
+};
+
+type SectionComponent = ForwardRefExoticComponent<
+  PropsWithoutRef<SectionProps> & RefAttributes<HTMLElement>
+>;
+
+type LazySection = LazyExoticComponent<SectionComponent>;
+
+const FeatureSection: LazySection = lazy(() => import("./components/sections/FeatureSection"));
+const ProductSection: LazySection = lazy(() => import("./components/sections/ProductSection"));
+const BrandSection: LazySection = lazy(() => import("./components/sections/BrandSection"));
+const NewsLetterSection: LazySection = lazy(() => import("./components/sections/NewsLetterSection"));
+const FooterSection: LazySection = lazy(() => import("./components/sections/FooterSection"));
 
 function App() {
   // Create refs for each section
@@ -56,14 +79,16 @@ function App() {
 
   return (
     <section className="max-w-screen overflow-x-hidden min-h-screen">
-      <Navigation isHero={isHeroInView} onScrollToSection={(k) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
+      <Navigation isHero={isHeroInView} onScrollToSection={(k: string) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
       <HeroSection ref={heroRef} onScrollToSection={() => handleSmoothScroll("products")} />
-      <AboutSection ref={aboutRef} onScrollToSection={(k) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
-      <FeatureSection ref={featuresRef} onScrollToSection={(k) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
-      <ProductSection ref={productsRef} />
-      <BrandSection ref={brandsRef} />
-      <NewsLetterSection ref={newsletterRef} />
-      <FooterSection ref={footerRef} onScrollToSection={(k) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
+      <AboutSection ref={aboutRef} onScrollToSection={(k: string) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
+        <Suspense fallback={<div />}> 
+          <FeatureSection ref={featuresRef} onScrollToSection={(k: string) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
+          <ProductSection ref={productsRef} onScrollToSection={(k: string) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
+          <BrandSection ref={brandsRef} />
+          <NewsLetterSection ref={newsletterRef} />
+          <FooterSection ref={footerRef} onScrollToSection={(k: string) => handleSmoothScroll(k as keyof typeof sectionRefs)} />
+        </Suspense>
     </section>
   );
 }

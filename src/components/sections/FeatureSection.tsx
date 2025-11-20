@@ -15,9 +15,9 @@ const FeatureSection = forwardRef<HTMLElement, { className?: string; onScrollToS
         className={`py-20 flex flex-col ${className || ""}`}
       >
         <section>
-          <h1 className="text-center font-secondary text-6xl font-semibold tracking-wide text-sidebar-accent/80">
+          <h2 className="text-center font-secondary text-6xl font-semibold tracking-wide text-sidebar-accent/80">
             Flexible <span className="text-foreground">selection</span>
-          </h1>
+          </h2>
         </section>
         <section className="w-full flex flex-col-reverse md:flex-row items-start mt-18 gap-7">
           <div className="w-full md:w-3/5 flex flex-col gap-6">
@@ -39,6 +39,10 @@ const FeatureSection = forwardRef<HTMLElement, { className?: string; onScrollToS
               <img
                 src={Image_3}
                 alt="Feature Image"
+                width={600}
+                height={384}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 object-cover"
               />
               <div className="hidden rounded-full bg-background size-11 md:flex items-center justify-center p-2">
@@ -70,6 +74,10 @@ const FeatureSection = forwardRef<HTMLElement, { className?: string; onScrollToS
               <img
                 src={Image_4}
                 alt="Feature Image"
+                width={600}
+                height={432}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-72 object-cover"
               />
             </Card>
