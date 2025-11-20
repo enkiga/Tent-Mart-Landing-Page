@@ -13,6 +13,7 @@ Inspired design: <https://pin.it/39p1817qV>
   - [About](#about)
   - [Live Preview](#live-preview)
   - [Features](#features)
+  - [Performance \& PageSpeed Insights](#performance--pagespeed-insights)
   - [Tech Stack](#tech-stack)
   - [File Structure (important files)](#file-structure-important-files)
   - [Running Locally](#running-locally)
@@ -52,6 +53,32 @@ This project was created as a short series of experiments to demonstrate:
 - Brand carousel: CSS-only infinite scrolling animation using translate3d, will-change & performance considerations.
 - Reusable SectionWrapper: Forwarding refs for scroll anchoring; keeps layout, spacing, and consistent behavior.
 - Good code practices: Componentized UI, `forwardRef`, `useCallback`, `useMemo` for stable handlers and props.
+
+---
+
+## Performance & PageSpeed Insights
+
+The project was audited using Google PageSpeed Insights. Below are the most recent results captured on **Nov 21, 2025**.
+
+- Mobile (Emulated Moto G Power)
+  - Performance: **90**
+  - Accessibility: **92**
+  - Best Practices: **100**
+  - SEO: **100**
+  - Key metrics: FCP 2.6 s, LCP 3.1 s, TBT 10 ms, CLS 0.021, Speed Index 2.6 s
+  - Noted opportunities: render-blocking requests (~1.33 s savings), image delivery improvements (~229 KiB savings), reduce unused JS (~41 KiB savings)
+  - PageSpeed report: [Mobile PageSpeed report](https://pagespeed.web.dev/analysis/https-tent-mart-pages-dev/wmawer00aj?form_factor=mobile)
+
+- Desktop (Emulated)
+  - Performance: **99**
+  - Accessibility: **92**
+  - Best Practices: **100**
+  - SEO: **100**
+  - Key metrics: FCP 0.7 s, LCP 0.8 s, TBT 0 ms, CLS 0.043, Speed Index 0.7 s
+  - Noted opportunities: render-blocking requests (~290 ms savings), improve image delivery (~490 KiB savings), reduce unused JS (~41 KiB savings)
+  - PageSpeed report: [Desktop PageSpeed report](https://pagespeed.web.dev/analysis/https-tent-mart-pages-dev/wmawer00aj?form_factor=desktop)
+
+These performance results show the site is well-optimized on desktop and very good on mobile.
 
 ---
 
