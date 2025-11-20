@@ -18,9 +18,7 @@ Inspired design: <https://pin.it/39p1817qV>
   - [Running Locally](#running-locally)
   - [Developer Notes](#developer-notes)
   - [Contributing](#contributing)
-  - [Next steps / Improvements](#next-steps--improvements)
   - [Attribution](#attribution)
-  - [License](#license)
 
 ---
 
@@ -38,7 +36,7 @@ This project was created as a short series of experiments to demonstrate:
 
 ## Live Preview
 
-(If you are running locally: start the dev server and open the provided URL.)
+[(Live URL)](https://tent-mart.pages.dev/)
 
 ---
 
@@ -70,7 +68,7 @@ This project was created as a short series of experiments to demonstrate:
 
 ## File Structure (important files)
 
-```md
+```cmd
 src/
   App.tsx  # Main app: sets up refs, smooth-scrolling, and site layout
   main.tsx
@@ -106,20 +104,32 @@ package.json
 
 Prerequisites: Node.js (>= 18 recommended), npm, pnpm or yarn.
 
-1. Install dependencies
+- Clone the repository
+
+```powershell
+git clone https://github.com/enkiga/Tent-Mart-Landing-Page.git
+```
+
+- Navigate into the project directory
+
+```powershell
+cd Tent-Mart-Landing-Page
+```
+
+- Install dependencies
 
 ```powershell
 npm install
 ```
 
-2. Start development server
+- Start development server
 
 ```powershell
 npm run dev
 # open the URL printed in the terminal (e.g. http://localhost:5173/ or 5174)
 ```
 
-3. Run final build
+- Run final build
 
 ```powershell
 npm run build
@@ -148,25 +158,8 @@ npm run build
 
 ---
 
-## Next steps / Improvements
-
-- Add IntersectionObserver-based active link highlight for navigation.
-- Add unit and component tests (Vitest/Jest + React Testing Library).
-- Add image optimization / placeholder strategies for product images.
-- Add keyboard navigation accessibility improvements to nav and drawers.
-
----
-
 ## Attribution
 
 - This project is an exercise in translating a Pinterest design into code. Original inspiration: <https://pin.it/39p1817qV>
 
 ---
-
-## License
-
-MIT - feel free to copy or adapt this example for your own learning or portfolio.
-
----
-
-If you want me to add any more specifics — such as a step-by-step 'how this was built' section, unit tests, or an issue tracker template — say the word. I can also create an .env.example and a small CONTRIBUTING.md if useful.
