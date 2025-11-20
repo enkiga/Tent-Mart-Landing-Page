@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.129 0.042 264.695);
+
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.129 0.042 264.695);
+
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.129 0.042 264.695);
+
+  /* UPDATED PRIMARY/SECONDARY */
+  --color-primary: oklch(0.79 0.16 69); /* from #fb8500 */
+  --color-primary-foreground: oklch(0.98 0.01 250);
+
+  --color-secondary: oklch(0.31 0.03 257); /* from #1B263B */
+  --color-secondary-foreground: oklch(0.98 0.01 250);
+
+  --color-muted: oklch(0.96 0.007 247.896);
+  --color-muted-foreground: oklch(0.554 0.046 257.417);
+
+  --color-accent: oklch(0.96 0.007 247.896);
+  --color-accent-foreground: oklch(0.208 0.042 265.755);
+
+  --color-destructive: oklch(0.577 0.245 27.325);
+
+  --color-border: oklch(0.929 0.013 255.508);
+  --color-input: oklch(0.929 0.013 255.508);
+  --color-ring: oklch(0.704 0.04 256.788);
+
+  --color-chart-1: oklch(0.646 0.222 41.116);
+  --color-chart-2: oklch(0.6 0.118 184.704);
+  --color-chart-3: oklch(0.398 0.07 227.392);
+  --color-chart-4: oklch(0.828 0.189 84.429);
+  --color-chart-5: oklch(0.769 0.188 70.08);
+
+  --color-sidebar: oklch(0.984 0.003 247.858);
+  --color-sidebar-foreground: oklch(0.129 0.042 264.695);
+  --color-sidebar-primary: oklch(0.79 0.16 69);
+  --color-sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --color-sidebar-accent: oklch(0.31 0.03 257);
+  --color-sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --color-sidebar-border: oklch(0.929 0.013 255.508);
+  --color-sidebar-ring: oklch(0.704 0.04 256.788);
+
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Bebas Neue", cursive;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-primary;
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    /* Move exactly half the total width (the length of one set of brands) */
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@layer utilities {
+  .animate-scroll {
+    /* Use w-max so the 50% is calculated based on content width, not screen width */
+    animation: scroll 20s linear infinite;
+    /* increased time to 20s because the strip is now "longer" in logic */
+  }
+}
